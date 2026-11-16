@@ -1033,14 +1033,18 @@ if (followerRail) {
   followerRail.addEventListener('pointerleave', stopDragging);
 }
 
-// Keep package buttons functional without forcing a payment provider.
-document.querySelectorAll('.follower-card__btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    const followers = Number(button.dataset.followers).toLocaleString('en-IN');
-    const price = Number(button.dataset.price).toLocaleString('en-IN');
-    alert(`You selected ${followers} followers for ₹${price}.`);
+// Make all old Followers & Likes buttons scroll to Instagram contact box
+document.querySelectorAll('#followers-rail button, #likes-rail button, .follower-card__btn').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    var planText = button.closest('article, div') ? button.closest('article, div').innerText.split('\n')[0] : 'Growth Package';
+    if(button.dataset.followers && button.dataset.price) {
+      planText = Number(button.dataset.followers).toLocaleString('en-IN') + ' Followers - ₹' + Number(button.dataset.price).toLocaleString('en-IN');
+    }
+    selectPlan(planText);
   });
 });
+
 
 // Like package swipe rail
 const likesRail=document.getElementById("likes-rail");if(likesRail){let d=false,x=0,s=0;likesRail.addEventListener("pointerdown",e=>{if(e.target.closest("button"))return;d=true;x=e.clientX;s=likesRail.scrollLeft;likesRail.setPointerCapture?.(e.pointerId)});likesRail.addEventListener("pointermove",e=>{if(d)likesRail.scrollLeft=s-(e.clientX-x)});["pointerup","pointercancel","pointerleave"].forEach(e=>likesRail.addEventListener(e,()=>d=false))}document.querySelectorAll(".like-card__btn").forEach(b=>b.addEventListener("click",()=>alert(`You selected ${Number(b.dataset.likes).toLocaleString("en-IN")} likes for ₹${Number(b.dataset.price).toLocaleString("en-IN")}.`)));
@@ -1048,26 +1052,7 @@ const likesRail=document.getElementById("likes-rail");if(likesRail){let d=false,
 </script>
   <div style="max-width: 800px; margin: 40px auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
 
-    <div style="text-align: center; padding: 25px; background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 30px;">
-        <h2 style="color: #222; margin-top: 0;">Select Your Social Growth Plan</h2>
-        <p style="color: #555;">Choose your budget or package below (Max up to 2K) to boost your profile.</p>
-        
-        <h3 style="margin-top: 25px; margin-bottom: 10px; color: #0056b3;">👥 Followers Packages (₹200 = 1K Rate)</h3>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px;">
-            <button onclick="selectPlan('50 Followers - ₹10')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">50 Followers (₹10)</button>
-            <button onclick="selectPlan('250 Followers - ₹50')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">250 Followers (₹50)</button>
-            <button onclick="selectPlan('500 Followers - ₹100')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">500 Followers (₹100)</button>
-            <button onclick="selectPlan('1,000 Followers (1K) - ₹200')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #0056b3; border: none; border-radius: 6px; cursor: pointer;">1K Followers (₹200)</button>
-            <button onclick="selectPlan('2,000 Followers (2K) - ₹400')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #004085; border: none; border-radius: 6px; cursor: pointer;">2K Followers (₹400)</button>
-        </div>
 
-        <h3 style="margin-bottom: 10px; color: #1e7e34;">❤️ Likes Packages (₹100 = 1K Rate)</h3>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-            <button onclick="selectPlan('100 Likes - ₹10')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #28a745; border: none; border-radius: 6px; cursor: pointer;">100 Likes (₹10)</button>
-            <button onclick="selectPlan('500 Likes - ₹50')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #28a745; border: none; border-radius: 6px; cursor: pointer;">500 Likes (₹50)</button>
-            <button onclick="selectPlan('1,000 Likes (1K) - ₹100')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #1e7e34; border: none; border-radius: 6px; cursor: pointer;">1K Likes (₹100)</button>
-            <button onclick="selectPlan('2,000 Likes (2K) - ₹200')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #155724; border: none; border-radius: 6px; cursor: pointer;">2K Likes (₹200)</button>
-        </div>
 
         <div id="contact-box" style="display: none; margin-top: 25px; padding: 20px; background-color: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; color: #856404;">
             <h3 style="margin-top: 0; color: #d39e00;">🎉 Selected: <span id="selected-plan-name"></span></h3>
