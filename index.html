@@ -1046,5 +1046,78 @@ document.querySelectorAll('.follower-card__btn').forEach((button) => {
 const likesRail=document.getElementById("likes-rail");if(likesRail){let d=false,x=0,s=0;likesRail.addEventListener("pointerdown",e=>{if(e.target.closest("button"))return;d=true;x=e.clientX;s=likesRail.scrollLeft;likesRail.setPointerCapture?.(e.pointerId)});likesRail.addEventListener("pointermove",e=>{if(d)likesRail.scrollLeft=s-(e.clientX-x)});["pointerup","pointercancel","pointerleave"].forEach(e=>likesRail.addEventListener(e,()=>d=false))}document.querySelectorAll(".like-card__btn").forEach(b=>b.addEventListener("click",()=>alert(`You selected ${Number(b.dataset.likes).toLocaleString("en-IN")} likes for ₹${Number(b.dataset.price).toLocaleString("en-IN")}.`)));
 
 </script>
+  <div style="max-width: 800px; margin: 40px auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+
+    <div style="text-align: center; padding: 25px; background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 30px;">
+        <h2 style="color: #222; margin-top: 0;">Select Your Social Growth Plan</h2>
+        <p style="color: #555;">Choose your budget or package below (Max up to 2K) to boost your profile.</p>
+        
+        <h3 style="margin-top: 25px; margin-bottom: 10px; color: #0056b3;">👥 Followers Packages (₹200 = 1K Rate)</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px;">
+            <button onclick="selectPlan('50 Followers - ₹10')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">50 Followers (₹10)</button>
+            <button onclick="selectPlan('250 Followers - ₹50')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">250 Followers (₹50)</button>
+            <button onclick="selectPlan('500 Followers - ₹100')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #007bff; border: none; border-radius: 6px; cursor: pointer;">500 Followers (₹100)</button>
+            <button onclick="selectPlan('1,000 Followers (1K) - ₹200')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #0056b3; border: none; border-radius: 6px; cursor: pointer;">1K Followers (₹200)</button>
+            <button onclick="selectPlan('2,000 Followers (2K) - ₹400')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #004085; border: none; border-radius: 6px; cursor: pointer;">2K Followers (₹400)</button>
+        </div>
+
+        <h3 style="margin-bottom: 10px; color: #1e7e34;">❤️ Likes Packages (₹100 = 1K Rate)</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+            <button onclick="selectPlan('100 Likes - ₹10')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #28a745; border: none; border-radius: 6px; cursor: pointer;">100 Likes (₹10)</button>
+            <button onclick="selectPlan('500 Likes - ₹50')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #28a745; border: none; border-radius: 6px; cursor: pointer;">500 Likes (₹50)</button>
+            <button onclick="selectPlan('1,000 Likes (1K) - ₹100')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #1e7e34; border: none; border-radius: 6px; cursor: pointer;">1K Likes (₹100)</button>
+            <button onclick="selectPlan('2,000 Likes (2K) - ₹200')" style="padding: 10px 16px; font-size: 15px; font-weight: bold; color: #fff; background-color: #155724; border: none; border-radius: 6px; cursor: pointer;">2K Likes (₹200)</button>
+        </div>
+
+        <div id="contact-box" style="display: none; margin-top: 25px; padding: 20px; background-color: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; color: #856404;">
+            <h3 style="margin-top: 0; color: #d39e00;">🎉 Selected: <span id="selected-plan-name"></span></h3>
+            <p style="font-size: 17px; margin-bottom: 15px;">To complete your order and get instant activation, please contact us on Instagram:</p>
+            <div style="font-size: 20px; font-weight: bold; background: #fff; padding: 10px 20px; display: inline-block; border-radius: 6px; border: 1px dashed #333; color: #000;">
+                Instagram ID: <span style="color: #e1306c;">@it_sara_yadav</span>
+            </div>
+            <br><br>
+            <a href="https://instagram.com" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #e1306c; color: #fff; text-decoration: none; font-weight: bold; border-radius: 5px;">Message on Instagram Now</a>
+        </div>
+    </div>
+
+    <h2>Welcome to i-follow.co.in – Your Ultimate Digital Companion</h2>
+    <p>In today's fast-paced digital world, staying connected and managing your online presence effectively is more important than ever. At <strong>i-follow.co.in</strong>, we aim to provide users with a clean, fast, and reliable platform designed to simplify their daily online experience. Whether you are looking for useful digital tools, quick updates, or a smooth interface to manage your links and profile, our website is built with user convenience as our top priority.</p>
+    
+    <h3>Why Choose i-follow.co.in?</h3>
+    <ul>
+        <li><strong>Fast & Reliable:</strong> Our platform is optimized for high speed so that you get instant results without any unnecessary delays or heavy loading times.</li>
+        <li><strong>User-Friendly Design:</strong> We believe in keeping things simple. Our clean layout ensures that anyone can navigate and use our services easily on both mobile phones and desktop computers.</li>
+        <li><strong>Affordable Plans:</strong> Starting from just ₹10, we offer flexible social media growth plans tailored to fit every user's budget.</li>
+        <li><strong>Safe & Secure:</strong> We respect your digital safety and ensure our platform runs on secure protocols to protect user privacy.</li>
+    </ul>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
+
+    <h3>About Us</h3>
+    <p><strong>i-follow.co.in</strong> was created with a simple mission: to build a helpful, accessible, and easy-to-use web platform for everyday internet users. Our team is dedicated to regularly updating and improving the site so that our visitors always get the best and most accurate experience possible.</p>
+
+    <h3>Privacy Policy</h3>
+    <p>At <strong>i-follow.co.in</strong>, the privacy of our visitors is extremely important to us. We do not collect any personal information unless you voluntarily provide it to us. Like many other websites, we may use standard log files and cookies to understand user preferences and improve site performance. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Users may opt out of personalized advertising by visiting Google Ads Settings.</p>
+
+    <h3>Contact Us</h3>
+    <p>If you have any questions, suggestions, or feedback regarding our website or policies, please feel free to reach out to us directly on Instagram at <strong>@it_sara_yadav</strong> or via email.</p>
+    <p><strong>Email:</strong> support@i-follow.co.in</p>
+
+    <div style="text-align: center; margin-top: 30px; font-size: 14px; color: #777;">
+        &copy; 2026 i-follow.co.in | All Rights Reserved.
+    </div>
+
+</div>
+
+<script>
+function selectPlan(planName) {
+    var box = document.getElementById('contact-box');
+    var nameSpan = document.getElementById('selected-plan-name');
+    nameSpan.innerText = planName;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
 </body>
 </html>
